@@ -1,0 +1,16 @@
+<!-- <h3>Hi Gogo!</h3>
+
+<app-nav /> -->
+<!-- Това се случва горе-долу...code behind
+    const div = document.createElement("div")
+    div.textContent = 'test 1,2,3'
+    const appRoot = document.getElemetntById('app-root');
+    sppRoot.appendChild(div)
+ -->
+<app-navigation />
+<app-user-list />
+<app-playground color="{{ colorRedForPlayground }}" />
+<app-playground
+    color="{{ colorGreenForPlayground }}"
+    (onTestOutput)="onOutputfromChild($event)"
+/>

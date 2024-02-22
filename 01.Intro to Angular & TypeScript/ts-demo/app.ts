@@ -84,6 +84,7 @@ const dog1: Dog1<number> = { id: 1, name: "Roshko" };
 const dog2: Dog1<string> = { id: "ABCD", name: "Pat" };
 
 // ***  ENUMERIC
+// zero based obj (0,1,2)
 enum PaymentStatus {
     Successfull,
     Failed,

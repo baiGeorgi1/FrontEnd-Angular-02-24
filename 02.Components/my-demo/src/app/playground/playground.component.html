@@ -1,0 +1,21 @@
+<p>playground works!</p>
+
+<button class="btn-handle" (click)="handleClick($event)">Click here</button>
+<div [style.color]="isToggle ? 'green' : 'black'">
+    Dynamic color change (ternar opeerator)!
+</div>
+<hr />
+
+<p [class.shiny]="isToggle">Shinig text</p>
+<hr />
+<input type="text" placeholder="usename" #username />
+<button (click)="inputHandle(username)">Handle</button>
+<div [style.background]="colorValue">test123</div>
+
+<hr />
+<div *ngIf="isToggle">
+    <div [class]="greenBackGround">Toggle me!</div>
+    <img [attr.src]="imgUrl" />
+</div>
+<hr />
+<div [attr.data-test123]="'test123'">Testing custom data attribute</div>

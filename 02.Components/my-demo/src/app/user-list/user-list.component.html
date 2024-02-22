@@ -1,0 +1,18 @@
+<ul>
+    <li *ngFor="let user of users; index as i">
+        <span *ngIf="i % 2 === 0" style="background-color: greenyellow">
+            Person with the name: {{ user.name }} is {{ user.age }} y/o.
+        </span>
+        <span *ngIf="i % 2 !== 0" style="background-color: orange">
+            Person with the name: {{ user.name }} is {{ user.age }} y/o.
+        </span>
+    </li>
+</ul>
+<h3>Class status</h3>
+<ul>
+    <li *ngFor="let user of users; index as i">
+        <span [class]="user?.status">
+            Person with the name: {{ user.name }} is {{ user.age }} y/o.
+        </span>
+    </li>
+</ul>
