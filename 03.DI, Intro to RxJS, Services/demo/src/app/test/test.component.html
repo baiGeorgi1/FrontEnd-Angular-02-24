@@ -1,0 +1,6 @@
+<div>
+    <ul>
+        <li *ngFor="let user of userList"><user-item [user]="user" /></li>
+    </ul>
+</div>
+<button (click)="refresh()">Refresh</button>

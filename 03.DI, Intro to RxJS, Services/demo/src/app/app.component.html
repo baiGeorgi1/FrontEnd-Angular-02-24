@@ -1,0 +1,10 @@
+<h2>{{ title }}</h2>
+<div *ngIf="isLoading">Loading...</div>
+<div *ngIf="!isLoading">
+    <test-app [users]="appUsers" />
+</div>
+<div>
+    <input type="text" #nameInput />
+    <input type="text" #emailInput />
+    <button (click)="setUsers(nameInput, emailInput)">Add user</button>
+</div>

@@ -1,0 +1,28 @@
+<input
+    type="text"
+    [ngModel]="searchText"
+    (ngModelChange)="searchText = $event"
+    placeholder="Search game"
+/>
+<!-- type="text" [(ngModel)]="searchText" placeholder="Search game"/> -->
+
+<p>Searched value:{{ searchText }}.</p>
+<!-- С *ngFor="let i of items" -->
+<!-- С # реферираме елемент -->
+<ul #gamesContainer>
+    <li *ngFor="let game of games">
+        <game-item [sourceGame]="game"></game-item>
+    </li>
+</ul>
+<!-- Резултатът от реферираноят елемент -->
+<div>Total games: {{ gamesContainer.children.length }}</div>
+<button (click)="handleCreateOrDestroy()">
+    {{
+        showGameItemComponent
+            ? "Destroy Game item component"
+            : "Create item component"
+    }}
+</button>
+<button (click)="handleExpand(gamesContainer)">
+    {{ coloredPrice ? "Hide Price" : "Show Price" }}
+</button>
