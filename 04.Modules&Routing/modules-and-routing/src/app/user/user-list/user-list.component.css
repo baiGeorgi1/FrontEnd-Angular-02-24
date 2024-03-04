@@ -1,0 +1,14 @@
+p {
+    color: red;
+}
+.user-list-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+}
+.clickable {
+    cursor: pointer;
+    background-color: #ddd;
+}

@@ -1,0 +1,20 @@
+.navigation {
+    display: flex;
+    justify-content: center;
+}
+.nav-btn {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 20px;
+    cursor: pointer;
+    width: fit-content;
+}
+.nav-btn:hover {
+    background-color: dodgerblue;
+    color: white;
+}
+.navigation a {
+    display: block;
+    margin: 10px;
+}
