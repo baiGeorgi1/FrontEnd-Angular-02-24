@@ -7,6 +7,7 @@ export const routes: Routes = [
     { path: "", pathMatch: "full", redirectTo: "user/list" },
 
     { path: "todo-list", component: TodoListComponent },
+    { path: "**", redirectTo: "error-page" }, //make ERROR PAGE
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

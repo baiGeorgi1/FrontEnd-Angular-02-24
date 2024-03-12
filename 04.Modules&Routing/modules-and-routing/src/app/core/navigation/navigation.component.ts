@@ -10,6 +10,7 @@ export class NavigationComponent {
     constructor(private router: Router) {}
     // way to routing
     navigateTo(path: string): void {
+        console.log(path);
         this.router.navigate([path]);
     }
 }

@@ -15,9 +15,13 @@ export class UserDetailsComponent implements OnInit {
         //static data
         console.log("snapshot data", this.activeRoute.snapshot.data["user"]);
         //dynamic
-        this.activeRoute.params.subscribe((v) =>
-            console.log("params.subscribe", v),
-        );
+        this.activeRoute.params.subscribe((v) => {
+            console.log("params.subscribe", v);
+            // const id = v["id"];
+            // this.userService.fettchOneUser(id).subscribe((user) => {
+            //     console.log(user);
+            // });
+        });
     }
 
     ngOnInit(): void {}
