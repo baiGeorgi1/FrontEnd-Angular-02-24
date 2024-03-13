@@ -1,0 +1,11 @@
+p {
+    font: 16px/1 Arial;
+}
+
+.highlight {
+    background-color: #368;
+    color: whitesmoke;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
