@@ -5,9 +5,18 @@ import { ProfileComponent } from "./profile/profile.component";
 import { RegisterComponent } from "./register/register.component";
 import { UserRoutingModule } from "./user-routing.module";
 import { RouterModule } from "@angular/router";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
     declarations: [LoginComponent, ProfileComponent, RegisterComponent],
-    imports: [CommonModule, UserRoutingModule, RouterModule],
+    imports: [
+        CommonModule,
+        UserRoutingModule,
+        RouterModule,
+        FormsModule,
+        SharedModule,
+        ReactiveFormsModule,
+    ],
 })
 export class UserModule {}

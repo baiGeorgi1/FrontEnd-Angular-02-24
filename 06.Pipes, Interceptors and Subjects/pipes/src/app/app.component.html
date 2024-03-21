@@ -1,0 +1,17 @@
+<h1>hello</h1>
+<!-- **USING PIPES -->
+<div>{{ user | json | uppercase }}</div>
+<!-- ** means: JSON.stringify(user).to.UpperCase() -->
+<!-- ** ТАка подаваме на редюс ф-ята, а масивът ни е  user.list -->
+<div>{{ user.list | reduce : sum : 0 }}</div>
+<button (click)="addProperty()">Addd Property</button>
+
+<div>Prmise: {{ p | async }}</div>
+<div>Clock: {{ time$ | async | date }}</div>
+<!-- ** For Time -->
+<div>Clock: {{ time$ | async | date : "hh:mm:ss" }}</div>
+<hr />
+<div><a routerLink="/">Home</a></div>
+<div><a routerLink="/lazy">Lazy</a></div>
+
+<router-outlet />

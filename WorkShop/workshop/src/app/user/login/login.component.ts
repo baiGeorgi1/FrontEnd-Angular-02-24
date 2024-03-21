@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
+import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
+import { EMAIL_DOMAINS } from "src/app/constants";
 import { UserService } from "src/app/user.service";
 
 @Component({
@@ -7,11 +9,20 @@ import { UserService } from "src/app/user.service";
     templateUrl: "./login.component.html",
     styleUrls: ["./login.component.css"],
 })
-export class LoginComponent {
-    constructor(private userService: UserService, private router: Router) {}
 
-    login(ev: Event, email: string, password: string) {
-        ev.preventDefault();
+//Template- driven method
+export class LoginComponent {
+    domains = EMAIL_DOMAINS;
+    constructor(private userService: UserService, private router: Router) {}
+    //  beofre taking form lesson
+    // login(ev: Event, email: string, password: string) {
+    login(form: NgForm) {
+        console.log(form.value);
+
+        if (form.invalid) {
+            return;
+        }
+        // ev.preventDefault();
         this.userService.login();
         this.router.navigate(["/themes"]);
     }

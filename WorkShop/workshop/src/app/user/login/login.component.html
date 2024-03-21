@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="login" action="" method="post">
+    <form class="login" #form="ngForm" (ngSubmit)="login(form)">
         <fieldset>
             <h2>Login Form</h2>
 
@@ -13,13 +13,22 @@
                     name="email"
                     id="email"
                     placeholder="john.doe@gmail.com"
-                    #inputEmail
+                    ngModel
+                    #inputEmail="ngModel"
+                    required
+                    [appEmailValidator]="domains"
                 />
             </p>
-            <p class="error">Email is required!</p>
-            <!-- <p class="error">
-                Email is not valid!
-            </p> -->
+            <!-- Use this to see what you receive -->
+            <!-- {{inputEmail.errors?.["required"] | json }} -->
+            <ng-container *ngIf="inputEmail.touched">
+                <p class="error" *ngIf="inputEmail.errors?.['required']">
+                    Email is required!
+                </p>
+                <p class="error" *ngIf="inputEmail.errors?.['mailValidator']">
+                    Email is not valid!
+                </p>
+            </ng-container>
 
             <p class="field field-icon">
                 <label for="password"
@@ -30,21 +39,23 @@
                     name="password"
                     id="password"
                     placeholder="******"
-                    #inputPassword
+                    ngModel
+                    #inputPassword="ngModel"
+                    required
+                    minlength="5"
                 />
             </p>
-            <!-- <p class="error">
-                Password is required!
-            </p>
-            <p class="error">
-                Password must be at least 4 characters!
-            </p> -->
+            <ng-container *ngIf="inputPassword.touched">
+                <p class="error" *ngIf="inputPassword.errors?.['required']">
+                    Password is required!
+                </p>
+                <p class="error" *ngIf="inputPassword.errors?.['minlength']">
+                    Password must be at least 5 characters!
+                </p>
+            </ng-container>
 
-            <button
-                (click)="login($event, inputEmail.value, inputPassword.value)"
-            >
-                Login
-            </button>
+            <!-- (click)="login($event, inputEmail.value, inputPassword.value)" => before get Form lesson-->
+            <button>Login</button>
 
             <p class="text-center">
                 Have an account?
