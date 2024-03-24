@@ -15,3 +15,14 @@
 <div><a routerLink="/lazy">Lazy</a></div>
 
 <router-outlet />
+
+<hr />
+<div *ngIf="isLoading$ | async">Loading....</div>
+<div *ngIf="!(isLoading$ | async)">{{ users$ | async | json }}</div>
+
+<button *ngIf="(users$ | async) === null" (click)="loadUsers()">
+    Load Users
+</button>
+<button *ngIf="(users$ | async) !== null" (click)="reloadUsers()">
+    Reload Users
+</button>

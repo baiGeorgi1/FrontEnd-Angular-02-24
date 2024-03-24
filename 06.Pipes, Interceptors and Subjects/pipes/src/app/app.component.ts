@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
     title = "pipes";
 
     user = { name: "Petko", age: 22, list: [1, 2, 3, 4, 5, 6, 7] };
+
     sum(acc: number, curr: number): number {
         return acc + curr;
     }
@@ -33,9 +34,19 @@ export class AppComponent implements OnInit {
     constructor(private userService: UserService) {}
 
     ngOnInit(): void {
-        this.userService.loadUsers().subscribe({
-            // next: (data) => console.log(data),   => OR
-            next: console.log,
-        });
+        //     this.userService.loadUsers().subscribe({
+        //         // next: (data) => console.log(data),   => OR
+        //         next: console.log,
+        //     });
+    }
+
+    users$ = this.userService.userObs$;
+    isLoading$ = this.userService.isLoadingObs$;
+
+    loadUsers() {
+        this.userService.loadUsers();
+    }
+    reloadUsers() {
+        this.userService.loadUsers();
     }
 }
