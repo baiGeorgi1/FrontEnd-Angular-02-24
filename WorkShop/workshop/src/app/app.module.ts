@@ -9,31 +9,35 @@ import { SharedModule } from "./shared/shared.module";
 import { HttpClientModule } from "@angular/common/http";
 
 import { HomeComponent } from "./home/home.component";
-import { UserModule } from "./user/user.module";
 
 import { ThemeModule } from "./theme/theme.module";
 import { AddThemeComponent } from "./theme/add-theme/add-theme.component";
-import { ErrorComponent } from "./error/error.component";
+import { NotFoundComponent } from "./not-found/not-found.component";
 import { FormsModule } from "@angular/forms";
+import { appInterceptorProvider } from "./app.interceptor";
+import { AuthenticateComponent } from "./authenticate/authenticate.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         AddThemeComponent,
         HomeComponent,
-        ErrorComponent,
+        NotFoundComponent,
+        AuthenticateComponent,
+        NotFoundComponent,
     ],
     imports: [
         BrowserModule,
         CoreModule,
         SharedModule,
         HttpClientModule,
-        UserModule,
+        // UserModule,  - removing from here to make it lazy loading
         ThemeModule,
         FormsModule,
         AppRoutingModule,
     ],
-    providers: [],
+    // тук добавяме провайдърите
+    providers: [appInterceptorProvider],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

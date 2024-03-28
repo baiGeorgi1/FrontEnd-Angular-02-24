@@ -6,10 +6,12 @@
         <div *ngIf="!isLoggedIn" class="mini-navbar">
             <ul>
                 <li>
-                    <a routerLink="/login">Login</a>
+                    <!-- after we made lazy loading add auth -->
+
+                    <a routerLink="/auth/login">Login</a>
                 </li>
                 <li>
-                    <a routerLink="/register">Register</a>
+                    <a routerLink="/auth/register">Register</a>
                 </li>
             </ul>
         </div>
@@ -17,7 +19,8 @@
         <div *ngIf="isLoggedIn" class="mini-navbar">
             <ul>
                 <li>
-                    <a routerLink="/profile">{{ firstName }}'s Profile</a>
+                    <!-- after we made lazy loading add auth -->
+                    <a routerLink="/auth/profile">{{ username }}'s Profile</a>
                 </li>
                 <li (click)="logout()">
                     <a>Logout</a>

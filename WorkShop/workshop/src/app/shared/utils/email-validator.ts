@@ -8,12 +8,12 @@ export function mailValidator(domains: string[]): ValidatorFn {
     return (control) => {
         const isInvalidEmail =
             control.value === "" || regExp.test(control.value);
-        console.log(
-            "Test RegExp:",
-            isInvalidEmail,
-            "Control value:",
-            control.value,
-        );
+        // console.log(
+        //     "Test RegExp:",
+        //     isInvalidEmail,
+        //     "Control value:",
+        //     control.value,
+        // );
 
         return isInvalidEmail ? null : { mailValidator: true };
     };

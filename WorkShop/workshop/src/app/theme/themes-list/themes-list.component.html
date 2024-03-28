@@ -11,7 +11,8 @@
             <div class="theme-name-wrapper">
                 <div class="theme-name">
                     <a routerLink="{{ theme._id }}" class="normal">
-                        <h2>{{ theme.themeName }}</h2>
+                        <!-- After we create slice pipe export it => add slice with maxCount (this is the task) -->
+                        <h2>{{ theme.themeName | slice : 25 }}</h2>
                     </a>
                     <div class="columns">
                         <div>
@@ -40,7 +41,7 @@
                             </button>
                             <p>
                                 Subscribers:
-                                <span>{{ theme.subscribers.length }}</span>
+                                <span>{{ theme.subscribers.length || 0 }}</span>
                             </p>
                         </div>
                     </div>

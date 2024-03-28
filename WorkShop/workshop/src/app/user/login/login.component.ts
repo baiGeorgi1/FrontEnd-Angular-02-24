@@ -17,13 +17,22 @@ export class LoginComponent {
     //  beofre taking form lesson
     // login(ev: Event, email: string, password: string) {
     login(form: NgForm) {
-        console.log(form.value);
+        // console.log(form.value);
 
         if (form.invalid) {
             return;
         }
+        //  ** from interceptor lesson
+        const { email, password } = form.value;
+
         // ev.preventDefault();
-        this.userService.login();
-        this.router.navigate(["/themes"]);
+        //** Interceptors - now we have observable */
+        this.userService.login(email, password).subscribe(() => {
+            this.router.navigate(["/themes"]);
+        });
+
+        // this.userService.login();
+        // this.router.navigate(["/themes"]);
+        //**
     }
 }

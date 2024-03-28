@@ -17,13 +17,19 @@ export class HeaderComponent {
         return this.userService.isLogged;
     }
 
-    get firstName(): string {
-        return this.userService.user?.firstName || "";
+    get username(): string {
+        return this.userService.user?.username || "";
     }
 
     logout() {
-        this.userService.logout();
+        // ** Interceptor lesson - add subscribe
+        this.userService.logout().subscribe({
+            // after we made lazy loading add auth
+
+            next: () => this.router.navigate(["/auth/login"]),
+            error: () => this.router.navigate(["/auth/login"]),
+        });
         // to use navigation inject Router in constructor
-        this.router.navigate(["/home"]);
+        // this.router.navigate(["/home"]);
     }
 }

@@ -9,6 +9,8 @@ import { Post } from "./types/post";
 })
 export class ApiService {
     constructor(private http: HttpClient) {}
+
+    // ** THEMES
     getThemes() {
         const { apiURL } = environment;
         // const api= environment.apiURL  OR like that:
@@ -20,14 +22,19 @@ export class ApiService {
         const { apiURL } = environment;
         return this.http.get<Theme>(`${apiURL}/themes/${id}`);
     }
-    createTheme(theneName: string, postText: string) {
-        const { apiURL } = environment;
+    createTheme(themeName: string, postText: string) {
         const payload = {
-            theneName,
+            themeName,
             postText,
         };
-        return this.http.post<Theme>(`${apiURL}/themes`, payload);
+        //when we made Authentication  we use this:
+        return this.http.post<Theme>(`/api/themes`, payload);
+
+        // const { apiURL } = environment;
+        // return this.http.post<Theme>(`${apiURL}/themes`, payload);
     }
+
+    // ** POSTS
 
     getPosts(limit?: number) {
         const { apiURL } = environment;

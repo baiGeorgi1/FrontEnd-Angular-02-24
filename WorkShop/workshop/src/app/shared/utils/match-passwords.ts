@@ -11,7 +11,7 @@ export function matchPasswordsValidator(
         // console.log({ passwordFormConttrol, rePassFormControl });
         const areMatching =
             passwordFormConttrol?.value == rePassFormControl?.value;
-        console.log({ areMatching });
+        // console.log({ areMatching });
 
         return areMatching ? null : { matchPasswordsValidator: true };
     };
